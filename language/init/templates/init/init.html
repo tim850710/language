@@ -1,0 +1,41 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>程式語言小百科</title>
+<meta charset=utf-8>
+<link rel=stylesheet href="{% static 'main/css/main.css' %}">
+</head>
+<body>
+{% if not init  %}
+ <h1>系統並未初始化，目前資料如下：</h1>
+{% else %}
+ <h1>輸入資料如下：</h1>
+{% endif %}
+<p><b>使用者：</b></p>
+<ul>
+{% for user in users %}
+<li>帳號：{{user.username}}</li>
+<li>名稱：{{user.first_name}}</li>
+<li>電郵：{{user.email}}</li>
+<li>是員工：{{user.is_staff}}</li>
+<li>是管理者：{{user.is_superuser}}</li>
+{% endfor %}
+</ul>
+<p><b> 程式類別：</b></p>
+<ul>
+{% for category in categories %}
+ <li>{{category.name}}</li>
+{% endfor %}
+<p><b>頁面：</b></p>
+<table>
+ <tr><th>標題</th><th>所屬類別</th><th>網址</th></tr>
+ {% for page in pages %}
+ <tr><td>{{page.title}}</td><td>{{page.category.name}}</td><td>{{page.url}}</td><td>{{page.views}}</td></tr>
+ {% endfor %}
+</table>
+<br>
+<p><a href="{% url 'main:main' %}">回首頁</a></p>
+</ul>
+</body>
+</html>
