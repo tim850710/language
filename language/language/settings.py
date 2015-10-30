@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'main',
     'wiki',
+    'init',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'language.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'default': {       
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'languageDB',
         'USER': 'language',
