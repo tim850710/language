@@ -1,6 +1,9 @@
 from django.contrib.auth.models import  User
 from django.shortcuts import render
 from wiki.models import  Category, Page
+import random
+
+
 
 def init(request):
     if User.objects.filter(username='admin'):
@@ -76,9 +79,11 @@ def init(request):
 
  
 def popCategory(name):
-    category = Category.objects.get_or_create(name=name)[0]
+    category = Category.objects.get_or_create(name=name,
+                                              views=random.randint(0,20),
+                                              likes=random.randint(0,20))[0]
     return category
- 
+
  
 def popPage(category, title, url, views=0):
     Page.objects.get_or_create(category=category, title=title,url=url, views=views)[0]
