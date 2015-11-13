@@ -9,14 +9,16 @@
 <body>
 <h1>Wiki說--Hello world!</h1>
 {% if categories %}
- <h2>程式語言類別：</h2>
- <ul>
-  {% for category in categories %}
-    <li>{{category.name}}</li>
-  {% endfor %}
- </ul>
+  <h2>程式語言類別：</h2>
+  <ul>
+    {% for category in categories %}
+      <tr>
+   	    <li><td><a href={% url 'wiki:category' category.name %}>{{category.name}}</a></td>
+      </tr>
+    {% endfor %}
+  </ul>
 {% else %}
- <p><strong>目前尚未設定程式語言類別。</strong></p>
+  <p><strong>目前尚未設定程式語言類別。</strong></p>
 {% endif %}
 <a href={% url 'main:main' %}>回首頁</a>
 </body>
