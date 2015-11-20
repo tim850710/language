@@ -11,7 +11,7 @@ class Category(models.Model):
     
     
     def save(self, *args, **kwargs):
-        self.title = self.title.replace(' ', '-')
+        self.name = self.name.replace(' ', '-')
         super(Category, self).save(*args, **kwargs)
         
     def __str__(self):
