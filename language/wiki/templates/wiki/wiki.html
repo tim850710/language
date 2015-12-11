@@ -10,18 +10,25 @@
 <h1>Wiki說--Hello world!</h1>
 {% if categories %}
   <h2>程式語言類別：</h2>
+  <table>
+    <tr><th>分類名稱</th><th></th><th></th></tr>
   <ul>
     {% for category in categories %}
       <tr>
    	    <li><td>
-   	    <a href={% url 'wiki:category' category.name %}>{{category.name}}</a></td>
+   	    <a href={% url 'wiki:category' category.id %}>{{category.name}}</a></td>
    	      </li>
    	      <td>
    	       <form method=post action={% url 'wiki:deleteCategory' category.id %}>
-   	    {% csrf_token %}
+   	    	{% csrf_token %}
    	        <input type=submit value=刪除>
    	       </form>
    	    </td>
+   	    <td>
+   	      <form action={% url 'wiki:updateCategory' category.id %}>
+   	        <input type="submit" value=修改>
+   	      </form>
+   	     </td>
       </tr>
     {% endfor %}
   </ul>
