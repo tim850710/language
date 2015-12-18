@@ -1,14 +1,6 @@
-<!doctype html>
-{% load staticfiles %}
-<html>
-<head>
-
-<title>程式語言小百科</title>
-<meta charset=utf-8>
-<link rel=stylesheet href={% static 'main/css/main.css' %}>
-
-</head>
-<body>
+{% extends "main/base.html" %}
+{% block heading %}修改「{{page.title}}」網頁{% endblock %}
+{% block content %}
 
 
 <h1>修改網頁</h1>
@@ -21,6 +13,4 @@
 <p><a href={% url 'wiki:category' page.category.id %}>回「{{page.category.name}}」網頁
 </a></p>
 
-
-</body>
-</html>
+{% endblock %}

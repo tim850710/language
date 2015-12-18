@@ -1,16 +1,8 @@
-<!doctype html>
-{% load staticfiles %}
-<html>
-<head>
-<title>程式語言小百科</title>
-<meta charset=utf-8>
-<link rel=stylesheet href={% static 'main/css/main.css' %}>
-</head>
-<body>
-<h1>這裡是「關於程式語言小百科」</h1>
+{% extends "main/base.html" %}
+{% block heading %}關於{% endblock %}
+{% block content %}
 <p>我們提供許多程式語言的相關知識，歡迎瀏覽。</p>
 <br>
 <a href={% url 'main:main' %}>回首頁</a>
-<br>
-</body>
-</html>
+{% endblock %}
+

@@ -1,0 +1,13 @@
+<!doctype html>
+{% load staticfiles %}
+<html>
+<head>
+<title>程式語言小百科</title>
+<meta charset=utf-8>
+<link rel=stylesheet href={% static 'main/css/main.css' %}>
+</head>
+<body>
+<h1>程式語言小百科 -- {% block heading %}{% endblock %}</h1>
+{% block content %}{% endblock %}
+</body>
+</html>
